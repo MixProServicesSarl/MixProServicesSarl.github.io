@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MixPro Services SARL- M.P.S</title>
+  <style>
+    /* Reset basique */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 02px 06px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .logo img {
+      height: 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    nav a:hover {
+      background-color: #0066cc;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+
+    h1, h2, h3 {
+      color: #004080;
+      margin-bottom: 15px;
+    }
+
+    /* Section Intro */
+    .intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* Services */
+    .services-list ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    .services-list li {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+    .services-list li:hover {
+      box-shadow: 0 0 15px rgba(0,64,128,0.4);
+    }
+    .services-list li h3 {
+      margin-bottom: 10px;
+    }
+
+    /* Section service detail */
+    .service-detail {
+      margin-bottom: 60px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .service-detail p {
+      margin-bottom: 15px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 15px;
+    }
+    .gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  background: #fff;
+    }
+
+    /* À propos */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 60px;
+      align-items: center;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .about img {
+      max-width: 350px;
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .about p {
+      flex: 1;
+      font-size: 1.1em;
+    }
+
+    /* Équipe */
+    .team {
+      margin-bottom: 60px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .team-member {
+      text-align: center;
+      flex: 1 1 180px;
+    }
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    }
+    .team-member h3 {
+      margin-bottom: 5px;
+      color: #004080;
+    }
+    .team-member p {
+      font-style: italic;
+      color: #666;
+    }
+
+    /* Contact */
+    .contact-info {
+      background: #004080;
+      color: white;
+      padding: 25px 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .contact-info h2 {
+      margin-bottom: 15px;
+    }
+    .contact-info p {
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .about {
+        flex-direction: column;
+      }
+      .team-members {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="images/WhatsApp Image 2025-05-12 à 12.33.43_50325daf.jpg" alt="MixPro Services SARL- M.P.S" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#intro">Accueil / À propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Équipe</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section id="intro" class="intro">
+    <h1>Bienvenue chez MixPro Services SARL- M.P.S</h1>
+    <p>Votre partenaire de confiance pour tous vos besoins.</p>
+    <p>Notre slogan: 
+        Transfert rapide, Services multiples et Satisfaction totale.</p>
+  </section>
+
+  <section id="about" class="about">
+    <img src="images/WhatsApp Image 2025-05-12 à 12.33.43_50325daf.jpg" alt="À propos de Multi Services" />
+    <div>
+      <h2>À propos de nous</h2>
+      <p>MixPro Services SARL est une entreprise dédiée à vous fournir des prestations de qualité dans divers domaines, avec une équipe professionnelle et à votre écoute. Notre objectif est votre satisfaction totale.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services-list">
+    <h2>Nos Services</h2>
+    <ul>
+      <li onclick="showService('transfert')"><h3>Transfert d’argent</h3><p>Service rapide et sécurisé pour vos transferts nationaux et internationaux.</p></li>
+      <li onclick="showService('graphisme')"><h3>Conception graphique</h3><p>Création de logos, flyers, affiches et supports visuels personnalisés.</p></li>
+      <li onclick="showService('reprographie')"><h3>Reprographie</h3><p>Copies, impressions et reliures pour tous vos documents professionnels.</p></li>
+      <li onclick="showService('fournitures')"><h3>Vente de fournitures de bureau</h3><p>Large choix de fournitures pour équiper votre bureau à prix compétitifs.</p></li>
+      <li onclick="showService('flocage')"><h3>Impression textile (Flocage)</h3><p>Personnalisation de textiles avec flocage pour entreprises et particuliers.</p></li>
+    </ul>
+  </section>
+
+  <!-- Sections détaillées des services (cachées par défaut) -->
+  <section id="transfert" class="service-detail" style="display:none;">
+    <h2>Transfert d’argent</h2>
+    <p>Nous offrons un service de transfert d’argent rapide, sécurisé et accessible partout au Sénégal et à l’international.</p>
+    <div class="gallery">
+      <img src="images/WhatsApp Image 2025-05-12 à 12.30.09_40a44dad.jpg" alt="Transfert d’argent 1" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.30.09_4f55cb42.jpg" alt="Transfert d’argent 2" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.30.10_5ad1692b.jpg" alt="Transfert d’argent 3" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.30.10_6ff02fac.jpg" alt="Transfert d’argent 4" />
+    </div>
+  </section>
+
+  <section id="graphisme" class="service-detail" style="display:none;">
+    <h2>Conception graphique</h2>
+    <p>Création de logos, flyers, affiches et supports visuels personnalisés pour valoriser votre image.</p>
+    <div class="gallery">
+      <img src="images/WhatsApp Image 2025-05-12 à 12.30.33_dcf92004.jpg" alt="Conception graphique 1" />
+      <img src="images/télécharger (2).webp" alt="Conception graphique 2" />
+      <img src="images/OIP (1).webp" alt="Conception graphique 3" />
+      <img src="images/th (1).webp" alt="Conception graphique 4" />
+    </div>
+  </section>
+
+  <section id="reprographie" class="service-detail" style="display:none;">
+    <h2>Reprographie</h2>
+    <p>Copies, impressions et reliures pour tous vos documents professionnels avec qualité et rapidité.</p>
+    <div class="gallery">
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.17_0561907b.jpg" alt="Reprographie 1" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.12_0874de52.jpg" alt="Reprographie 2" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.12_9f86a668.jpg" alt="Reprographie 3" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.13_e7f1a140.jpg" alt="Reprographie 4" />
+    </div>
+  </section>
+
+  <section id="fournitures" class="service-detail" style="display:none;">
+    <h2>Vente de fournitures de bureau</h2>
+    <p>Large choix de fournitures pour équiper votre bureau à prix compétitifs et livraison rapide.</p>
+    <div class="gallery">
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.43_14affbce.jpg" alt="Fournitures de bureau 1" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.44_27de18d2.jpg" alt="Fournitures de bureau 2" />
+      <img src="images/WhatsApp Image 2025-05-12 à 12.31.44_c40e07c9.jpg" alt="Fournitures de bureau 3" />
+      <img src="images/OIP.webp" alt="Fournitures de bureau 4" />
+    </div>
+  </section>
+
+  <section id="flocage" class="service-detail" style="display:none;">
+    <h2>Impression textile (Flocage)</h2>
+    <p>Personnalisation de textiles avec flocage pour entreprises, associations et particuliers.</p>
+    <div class="gallery">
+      <img src="images/WhatsApp Image 2025-05-12 à 12.32.20_0d04a8ce.jpg" alt="Flocage 1" />
+      <img src="images/télécharger.webp" alt="Flocage 2" />
+      <img src="images/th.webp" alt="Flocage 3" />
+      <img src="images/télécharger (1).webp" alt="Flocage 4" />
+    </div>
+  </section>
+
+  <section id="team" class="team">
+    <h2>Notre Équipe :</h2>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="images/WhatsApp Image 2025-05-14 à 11.49.58_57d84ac0.jpg" alt="Jean Dupont" />
+        <h3>Awa Wade</h3>
+        <p>Etudiante/LG3/ISM</p>
+      </div>
+      <div class="team-member">
+        <img src="images/WhatsApp Image 2025-05-14 à 13.59.48_6833cdcf.jpg" alt="Fatou Ndiaye" />
+        <h3>Djibril Sounkarou Traoré</h3>
+        <p>Etudiant/LG3/ISM</p>
+      </div>
+      <div class="team-member">
+        <img src="images/WhatsApp Image 2025-05-14 à 13.52.45_5741ff14.jpg" alt="Aliou Diop" />
+        <h3>Khady Bâ</h3>
+        <p>Etudiante/LG3/ISM</p>
+      </div>
+      <div class="team-members">
+        <div class="team-member">
+          <img src="images/WhatsApp Image 2025-05-14 à 20.03.35_f2fb40f9.jpg" alt="Jean Dupont" />
+          <h3>Rose Marie Nicole Ndiaye</h3>
+          <p>Etudiante/LG3/ISM</p>
+        </div>
+        <div class="team-member">
+          <img src="images/WhatsApp Image 2025-05-14 à 22.22.58_1c123c1a.jpg" alt="Aliou Diop" />
+          <h3>Abdoulaye Diallo </h3>
+          <p>Etudiant/LG3/ISM</p>
+        </div>
+        <div class="team-member">
+            <img src="images/WhatsApp Image 2025-05-14 à 22.06.47_582b6a90.jpg" alt="Fatou Ndiaye" />
+            <h3>Djié Kassé</h3>
+            <p>Etudiante/LG3/ISM</p>
+          </div>
+        <div class="team-member">
+            <img src="images/WhatsApp Image 2025-05-14 à 20.06.35_57776376.jpg" alt="Fatou Ndiaye" />
+            <h3>Mossane Sène</h3>
+            <p>Etudiante/LG3/ISM</p>
+          </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-info">
+    <h2>Contactez-nous</h2>
+    <p><strong>Adresse :</strong> Saly Diacksao, Mbour, Sénégal</p>
+    <p><strong>Téléphone :</strong> +221 782952040 / 78 358 17 79</p>
+    <p><strong>Email :</strong> mixproservices20@gmail.com</p>
+    <p><strong>Horaires :</strong> Lun - Ven : 8h - 18h, Sam : 9h - 13h</p>
+  </section>
+
+</main>
+
+<footer>
+    <div style="margin: 20px 0;">
+        <h3 style="color: #004080;">Suivez-nous</h3>
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 10px;">
+          <a href="https://facebook.com" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" style="width: 30px; height: 30px; fill: #3b5998;" />
+          </a>
+          <a href="https://instagram.com" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width: 30px; height: 30px;" />
+          </a>
+          <a href="https://wa.me/221783866005" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" style="width: 30px; height: 30px;" />
+          </a>
+          <a href="mailto:contact@multiservices.sn">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email" style="width: 30px; height: 30px;" />
+          </a>
+        </div>
+      </div>
+      
+  <p>&copy; 2025 MixPro Services - M.P.S Tous droits réservés</p>
+</footer>
+
+<script>
+  function showService(id) {
+    const services = ['transfert', 'graphisme', 'reprographie', 'fournitures', 'flocage'];
+    services.forEach(serviceId => {
+      const section = document.getElementById(serviceId);
+      if (section) section.style.display = (serviceId === id) ? 'block' : 'none';
+    });
+
+    // Scroll après un petit délai pour être sûr que l'affichage est prêt
+    setTimeout(() => {
+      const sectionToScroll = document.getElementById(id);
+      if (sectionToScroll) {
+        sectionToScroll.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  }
+
+</script>
+
+</body>
+</html>
